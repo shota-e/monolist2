@@ -14,6 +14,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @wants_users = Want.find_by()
   end
 
   private
