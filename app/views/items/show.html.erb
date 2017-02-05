@@ -1,14 +1,21 @@
+<% content_for :head do %>
+  <title><%= @item.title %>- monolist</title>
+  <meta name="description" content="<%= @item.title %>に関する情報です。この商品を欲しい人、持ってる人を表示しています。">
+<% end %>
+
 <div class="container">
   <div class="container-inner inner-sm clearfix">
     <div class="item-single-main">
 
       <div class="image">
         <div class="img-wrap">
+
           <% if @item.large_image.present? %>
               <%= image_tag(@item.large_image , alt: @item.title) %>
           <% else %>
               <%= image_tag("no-image.png" , alt: @item.title) %>
           <% end %>
+
         </div>
       </div>
       <div class="title">
@@ -17,10 +24,21 @@
       <%= render 'action' , item: @item %>
     </div>
     <div class="item-single-side">
-      <%= render 'side_box', users: @have_users, action: 'Have' %>
-      <%= render 'side_box', users: @want_users, action: 'Want' %>
+      <div class="side-box">
+        <h4 class="side-box-title">Haveしたユーザー</h4>
+        <div class="side-box-body">
+          <%= render 'items/have_users' %>
+        </div>
+      </div>
+      <div class="side-box">
+        <h4 class="side-box-title">Wantしたユーザー</h4>
+        <div class="side-box-body">
+          <%= render 'items/want_users' %>
+        </div>
+      </div>
       <div class="text-center">
-        <%= link_to "楽天詳細ページへ", @item.detail_page_url %>
+        <% #TODO 正しいリンク先に %>
+        <%= link_to('楽天詳細ページへ', @item.detail_page_url) %>
       </div>
     </div>
   </div>
