@@ -1,0 +1,33 @@
+<% content_for :head do %>
+  <title>Want-items-ranking- monolist</title>
+  <meta name="description" content="Wantされた商品ランキングです。Wantされた商品の上位10件を表示しています。">
+<% end %>
+<div class="center"><h1>Want<span class="font-size">された商品</span>TOP10</h1></div>
+
+<ul>
+    <% @items.each.with_index(1) do |item, index| %>
+            <div class="container">
+              <div class="container-inner inner-sm clearfix">
+                <div class="item-single-main-rank">
+                    <div class="rank-h2">
+                        <h2><%= image_tag 'crown.png', :class =>'image_size' %><%= index %>位</h2>
+                    </div>
+                  <div class="image">
+                    <div class="img-wrap">
+                      <%= image_tag(item.large_image , alt: item.title) %>
+                    </div>
+                  </div>
+                  <div class="title">
+                    <%= item.title %>
+                  </div>
+                  
+                </div>
+                  <div class="text-center">
+                    <% #TODO 正しいリンク先に %>
+                    <%= link_to('楽天詳細ページへ', item.detail_page_url) %>
+                  </div>
+                </div>
+              </div>
+            </div>
+    <% end %>
+</ul>

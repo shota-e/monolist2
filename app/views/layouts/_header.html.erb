@@ -26,6 +26,12 @@
                   アイテムを追加
                 <% end %>
               </li>
+                                <li>
+                    <%= link_to "Want-rank", ranking_want_path %>
+                  </li>
+                  <li>
+                    <%= link_to "Have-rank", ranking_have_path %>
+                  </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   <span class="gravatar">
@@ -39,6 +45,7 @@
                     <%= link_to "プロフィール" , current_user  %>
                   </li>
                   <li role="separator" class="divider"></li>
+
                   <li>
                     <%= link_to "ログアウト", logout_path, method: "delete" %>
                   </li>

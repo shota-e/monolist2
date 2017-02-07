@@ -67,4 +67,10 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  namespace :ranking do
+      get :want, :have
+  end
+  
+  # get 'ranking/want'
+  # get 'ranking/have'
 end
